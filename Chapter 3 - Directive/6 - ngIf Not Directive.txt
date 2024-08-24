@@ -1,0 +1,49 @@
+The `ngIf` directive conditionally renders or removes an element from the DOM based on a given expression. For example:
+
+app.component.ts
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    NavbarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  title = 'ag_material_demo';
+
+  // Assuming isLoggedIn is a boolean variable
+  //  indicating whether the user is logged in
+  isLoggedIn: boolean = true;
+
+  // Assuming username is the name of the logged-in user
+  username: string = 'John';
+
+}
+
+
+
+app.component.html
+
+<div *ngIf="isLoggedIn">
+    <p>Welcome, {{ username }}!</p>
+</div>
+
+<!-- negated variable to achieve "if not" -->
+<div *ngIf="!isLoggedIn">
+    Please login, friend.
+</div>
+
+
+In the above example, the paragraph element will only be rendered if the `isLoggedIn` variable is `true`.

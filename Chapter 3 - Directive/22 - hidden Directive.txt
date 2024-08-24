@@ -1,0 +1,53 @@
+It’s interesting to note that even though NgIf “hides” our content, it actually gets completely destroyed by Angular whenever it needs to render or remove the template or component we bind it to.
+
+If we’d like our content to still be visible in the DOM, however remain hidden, then we should introduce the hidden attribute:
+
+This would then allow Angular to add a hidden attribute if the isLoggedIn property was true - we can show the nice message!
+
+You’ll note here that I’ve negated the expression by using the not (!) operator within the expression.
+
+You could say the hidden attribute is a more sophisticated style="display: none;".
+
+
+app.component.ts
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    NavbarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  title = 'ag_material_demo';
+
+  // Assuming isLoggedIn is a boolean variable
+  //  indicating whether the user is logged in
+  isLoggedIn: boolean = true;
+
+  // Assuming username is the name of the logged-in user
+  username: string = 'John';
+
+  isNewUser: boolean = false;
+
+}
+
+
+app.component.html
+
+<div [hidden]="!isLoggedIn">
+    <p>Welcome, {{ username }}!</p>
+</div>
+
+In the above example, the paragraph element will only be rendered if the `isLoggedIn` variable is `true`.

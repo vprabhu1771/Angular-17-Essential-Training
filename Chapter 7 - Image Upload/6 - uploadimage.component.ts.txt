@@ -1,0 +1,35 @@
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-uploadimage',
+  standalone: true,
+  imports: [],
+  templateUrl: './uploadimage.component.html',
+  styleUrl: './uploadimage.component.css'
+})
+export class UploadimageComponent {
+  
+  name!: string;
+  image!: File;
+
+  constructor(private http: HttpClient) {}
+
+  onTitleChanged(event: any) {
+    this.name = event.target.value;
+  }
+
+  onImageChanged(event: any) {
+    this.image = event.target.files[0];
+  }
+
+  newBook() {
+    const uploadData = new FormData();
+    uploadData.append('name', this.name);
+    uploadData.append('image', this.image, this.image.name);
+    this.http.post('http://127.0.0.1:8000/api_v1/book/', uploadData).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
+  }
+}

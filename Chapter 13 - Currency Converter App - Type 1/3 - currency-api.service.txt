@@ -1,0 +1,17 @@
+currency-api.service.ts
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { environment as env } from 'src/environments/environment.development';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CurrencyApiService {
+  
+  constructor(private http: HttpClient) { }
+
+  getExchangeRates(baseCurrency: string) {
+    return this.http.get(`${env.BASE_URL}latest${env.ACCESS_KEY}&base = ${baseCurrency}`);
+  }
+}

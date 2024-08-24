@@ -1,0 +1,59 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+
+import { NgxPrintModule } from 'ngx-print';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    
+    NgxPrintModule
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  title = 'ag_material_demo';
+
+  currentDate: string;
+  invoiceItems: any[]; // Array of objects representing invoice items
+
+  constructor() {
+    // Initialize sample data (you can replace this with your actual data)
+    this.currentDate = this.getCurrentDate();
+    this.invoiceItems = [
+      { description: 'Natraj Pencil', quantity: 2, unitPrice: 10 },
+      { description: 'Cello Gel Pen', quantity: 1, unitPrice: 20 },
+      { description: 'CD Marker', quantity: 3, unitPrice: 15 }
+    ];
+  }
+
+  getCurrentDate(): string {
+    // Function to get the current date in the format yyyy-mm-dd
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = (today.getMonth() + 1).toString();
+    let day = today.getDate().toString();
+
+    // Add leading zero if month/day is less than 10
+    if (month.length === 1) {
+      month = '0' + month;
+    }
+    if (day.length === 1) {
+      day = '0' + day;
+    }
+
+    return `${year}-${month}-${day}`;
+  }
+
+  calculateTotal(): number {
+    // Function to calculate the total amount of the invoice
+    return this.invoiceItems.reduce((total, item) => total + (item.quantity * item.unitPrice), 0);
+  }
+
+}

@@ -1,0 +1,15 @@
+environment.ts
+
+export const environment = {
+    production: false,
+    BASE_URL:"http://api.exchangeratesapi.io/v1/",
+    ACCESS_KEY:"?access_key=4ad869b7cb8ad7aa0d4790cb158efdf8"
+};
+
+environment.development.ts
+
+export const environment = {
+    production: false,
+    BASE_URL:"http://api.exchangeratesapi.io/v1/",
+    ACCESS_KEY:"?access_key=4ad869b7cb8ad7aa0d4790cb158efdf8"
+};

@@ -1,0 +1,64 @@
+One fantastic addition in Angular is the “else” statement. It behaves very similar to a JavaScript if (condition) { } else { } statement. Nice and simple!
+
+Here’s how we can use the “else” statement, to control the render flow inside a component’s template:
+
+
+Woah, what’s this whole #loggedOut syntax? That’s a template variable. You can name template variables as you wish.
+
+Using a template variable means that we can create a reference to a specific template part and then use it elsewhere - in this example we’re supplying it as an “else” value to ngIf.
+
+We use the <ng-template> because much like it’s HTML5 counterpart <template>, it’s also considered “virtual”.
+
+Being “virtual” means the <ng-template> contents won’t actually exist in the compiled DOM, until it’s needed (you will never see it until Angular renders it).
+
+When it’s needed (for example the “else” expression kicks into play), Angular will grab the contents of the <ng-template> tag, and replace the *ngIf contents with it. That’s it.
+
+So, before we continue, where does this * asterisk come from? Let’s learn some more advanced topics and concepts about Angular and its templating engine.
+
+app.component.ts
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    NavbarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  title = 'ag_material_demo';
+
+  // Assuming isLoggedIn is a boolean variable
+  //  indicating whether the user is logged in
+  isLoggedIn: boolean = true;
+
+  // Assuming username is the name of the logged-in user
+  username: string = 'John';
+
+  isNewUser: boolean = false;
+
+}
+
+
+app.component.html
+
+<div *ngIf="isLoggedIn; else loggedOut">
+    <p>Welcome, {{ username }}!</p>
+</div>
+
+<ng-template #loggedOut>
+    Please friend, login.
+</ng-template>
+
+
+In the above example, the paragraph element will only be rendered if the `isLoggedIn` variable is `true`.

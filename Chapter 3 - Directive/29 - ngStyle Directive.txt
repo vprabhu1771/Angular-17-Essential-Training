@@ -1,0 +1,10 @@
+The `ngStyle` directive dynamically applies CSS styles to an element based on a given expression. For example:
+
+
+<!-- app.component.html -->
+<p [ngStyle]="{ 'color': isActive ? 'green' : 'red', 'font-size': fontSize + 'px' }">
+  This is a dynamically styled paragraph.
+</p>
+
+
+The color and font-size of the paragraph will change based on the values of the `isActive` and `fontSize` variables.

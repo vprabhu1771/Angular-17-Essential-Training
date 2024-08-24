@@ -1,0 +1,78 @@
+But let’s not skip too far ahead, we’ve not covered ngIfThen just yet…
+*ngIf, Then and Else
+
+Let’s learn about the “then” syntax with NgIf.
+
+Adopting the then syntax alongside ngIf means we can clean up our templates a little and make them a bit more “separate”, this promotes clean code and a nice pattern to work with.
+
+Using the “then” syntax also creates more flexibility in some use cases, where we can dynamically change the template reference to then - essentially swapping <ng-template> on the fly (a less common use case however).
+
+You could optionally adopt this approach to create a more descriptive if/then/else block. Again, this comes down to use cases and preferences for what (could be) more advanced use cases:
+
+
+Thinking more about our JavaScript, this syntax aligns more with thinking in the flow of ternary statements.
+
+Our thinking above could be converted to:
+
+ngIf = expression ? then : else;
+
+
+You’ll note that “expression” is never used, it is only there to tell the JavaScript runtime which value to render. The same applies with the ng-container example I’ve used above - which would mean we don’t render a DOM node until our NgIf expression is evaluated and subsequently rendered.
+
+
+
+app.component.ts
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    NavbarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  title = 'ag_material_demo';
+
+  // Assuming isLoggedIn is a boolean variable
+  //  indicating whether the user is logged in
+  isLoggedIn: boolean = true;
+
+  // Assuming username is the name of the logged-in user
+  username: string = 'John';
+
+  isNewUser: boolean = false;
+
+}
+
+
+app.component.html
+
+<ng-container
+  *ngIf="isLoggedIn; then loggedIn; else loggedOut">
+</ng-container>
+
+<ng-template #loggedIn>
+    <div>
+      Welcome back, {{username}}.
+    </div>
+</ng-template>
+  
+<ng-template #loggedOut>
+    <div>
+        Please friend, login.
+    </div>
+</ng-template>
+
+
+In the above example, the paragraph element will only be rendered if the `isLoggedIn` variable is `true`.

@@ -1,0 +1,87 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
+})
+export class LoginComponent {
+
+  email: string = '';
+  password: string = '';
+  deviceName: string = '';
+
+  constructor(private http: HttpClient) {}
+
+  login() {
+
+    const loginData = {
+      email: this.email,
+      password: this.password,
+      device_name: this.deviceName,
+    };
+
+    this.http.post('http://192.168.1.122:8000/api/login', loginData, { responseType: 'text' }).subscribe(
+      (response: any) => {
+        // Assuming the response contains the token
+        const token = response;
+
+        // Save the token to localStorage
+        localStorage.setItem('token', token);
+
+        // Reset the form
+        this.resetForm();
+
+        alert(localStorage.getItem('token'));
+
+        // Redirect or perform other actions as needed
+      },
+      (error) => {
+        console.error('Login failed:', error);
+      }
+    );
+  }
+
+  logout() {
+    // Get the token from localStorage
+    const token = localStorage.getItem('token');
+
+    // Check if the token is available
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+
+    // Set the headers with the token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    // Send a request to the logout endpoint with the token in the headers
+    this.http.post('http://192.168.1.122:8000/api/logout', {}, { headers, responseType: 'text'  }).subscribe(
+      (response: any) => {
+        // Remove the token from localStorage
+        localStorage.removeItem('token');
+
+        // Redirect or perform other actions as needed
+        alert(response);
+      },
+      (error) => {
+        console.error('Logout failed:', error);
+      }
+    );
+  }
+
+  resetForm() {
+    // Clear the form fields
+    this.email = '';
+    this.password = '';
+    this.deviceName = '';
+  }
+}

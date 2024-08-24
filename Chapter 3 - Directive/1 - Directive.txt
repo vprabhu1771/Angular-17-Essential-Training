@@ -1,0 +1,19 @@
+Angular directives allow you to extend HTML with custom behavior and create reusable components. Here are a few examples of Angular directives:
+
+These are just a few examples of Angular directives. Directives allow you to add behavior and interactivity to your HTML templates and can be powerful tools for building dynamic web applications.
+
+What is NgIf?
+
+Using Angular’s NgIf
+
+Standard *ngIf in Angular
+
+*ngIf and Else
+
+ngIf and ng-template
+
+*ngIf, Then and Else
+
+NgIf or [hidden]?
+
+*ngIf, Observables and Async Pipe

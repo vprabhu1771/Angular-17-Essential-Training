@@ -1,0 +1,80 @@
+import { Component, OnInit } from '@angular/core';
+
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
+import { UserProfile } from "../../../models/UserProfile";
+import { FormsModule } from '@angular/forms';
+
+
+@Component({
+  selector: 'app-profile',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.css'
+})
+export class ProfileComponent implements OnInit {
+
+  // Assuming you have defined UserProfile interface
+  userProfile!: UserProfile
+  
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    // Get the token from localStorage
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.getUserInformation(token);
+    } else {
+      console.error('Token not found.');
+    }
+  }
+
+  getUserInformation(token: string) {
+    // Set the Authorization header with the token
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    this.http.get('http://192.168.1.122:8000/api/user', { headers }).subscribe(
+      (response: any) => {
+        // Process the user information response
+        console.log('User information:', response);
+        this.userProfile  = response;
+      },
+      (error) => {
+        console.error('Failed to fetch user information:', error);
+      }
+    );
+  }
+
+  logout() {
+    // Get the token from localStorage
+    const token = localStorage.getItem('token');
+
+    // Check if the token is available
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+
+    // Set the headers with the token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    // Send a request to the logout endpoint with the token in the headers
+    this.http.post('http://192.168.1.122:8000/api/logout', {}, { headers, responseType: 'text'  }).subscribe(
+      (response: any) => {
+        // Remove the token from localStorage
+        localStorage.removeItem('token');
+
+        // Redirect or perform other actions as needed
+        alert(response);
+      },
+      (error) => {
+        console.error('Logout failed:', error);
+      }
+    );
+  }
+
+}

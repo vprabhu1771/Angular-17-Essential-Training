@@ -1,0 +1,28 @@
+You can also create your own custom directives in Angular. For example, let's create a directive that highlights an element on hover:
+
+
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'yellow');
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeave() {
+    this.renderer.removeStyle(this.elementRef.nativeElement, 'background-color');
+  }
+}
+
+
+In the above example, the `HighlightDirective` applies a yellow background color to an element when the mouse enters it and removes the background color when the mouse leaves. To use this directive, you would apply it to an HTML element as an attribute:
+
+
+<!-- app.component.html -->
+<p appHighlight>Hover over me to see the effect!</p>

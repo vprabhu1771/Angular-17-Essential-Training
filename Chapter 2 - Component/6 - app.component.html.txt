@@ -1,0 +1,11 @@
+3. Finally, add the component's selector `<app-navbar>` in your main `app.component.html` file to include it in your application:
+
+
+<app-navbar></app-navbar>
+
+<router-outlet></router-outlet>
+
+
+When you run your Angular application, you should see a navigation bar at the top with the "Home," "About," "Services," and "Contact" links. The component encapsulates the HTML template and styles, allowing you to reuse the navbar across multiple parts of your application.
+
+Please note that you need to set up a basic Angular project with the necessary dependencies before creating and running this component.

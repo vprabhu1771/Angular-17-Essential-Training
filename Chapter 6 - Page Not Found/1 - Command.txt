@@ -1,0 +1,6 @@
+ng g c pages/PageNotFound
+
+CREATE src/app/pages/page-not-found/page-not-found.component.html (30 bytes)
+CREATE src/app/pages/page-not-found/page-not-found.component.spec.ts (663 bytes)
+CREATE src/app/pages/page-not-found/page-not-found.component.ts (276 bytes)
+CREATE src/app/pages/page-not-found/page-not-found.component.css (0 bytes)

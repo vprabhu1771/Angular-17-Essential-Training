@@ -1,0 +1,33 @@
+Here are some popular Angular admin panel generators and frameworks:
+
+1. **Angular Material Admin**: Built with Angular and Angular Material, it provides a comprehensive set of UI components and modules for admin dashboards.
+   - **Website**: [Angular Material Admin](https://flatlogic.com/admin-dashboards/angular)
+
+2. **NGX Admin**: Based on Nebular, this open-source admin dashboard framework comes with various themes and a rich set of UI components.
+   - **GitHub**: [NGX Admin](https://github.com/akveo/ngx-admin)
+
+3. **CoreUI for Angular**: A free open-source admin template based on Bootstrap 4 and Angular.
+   - **Website**: [CoreUI](https://coreui.io/angular)
+
+4. **SB Admin Angular**: A free, open-source, Angular 9+ admin template with Bootstrap 4.
+   - **GitHub**: [SB Admin Angular](https://github.com/startbootstrap/sb-admin-angular)
+
+5. **Angular Admin Dashboard**: A premium dashboard template by Creative Tim, built with Angular and Bootstrap.
+   - **Website**: [Angular Admin Dashboard](https://www.creative-tim.com/product/material-dashboard-angular2)
+
+6. **Blur Admin**: An open-source admin dashboard template built with Angular and Bootstrap.
+   - **GitHub**: [Blur Admin](https://github.com/akveo/blur-admin)
+
+7. **PrimeNG Admin Template**: Admin template based on PrimeNG, a comprehensive suite of Angular UI components.
+   - **Website**: [PrimeNG](https://www.primefaces.org/primeng/#/setup)
+
+8. **Light Blue Angular**: An admin template that comes with a variety of ready-to-use components and pages.
+   - **Website**: [Light Blue Angular](https://flatlogic.com/templates/light-blue-angular-dashboard)
+
+9. **Material Dashboard Angular**: A free Material Design admin template from Creative Tim.
+   - **Website**: [Material Dashboard Angular](https://www.creative-tim.com/product/material-dashboard-angular2)
+
+10. **Ngx-admin Nebular**: Based on Nebular, it offers a flexible and powerful solution for building Angular admin dashboards.
+    - **Website**: [Ngx-admin Nebular](https://akveo.github.io/nebular/)
+
+These frameworks and templates can help you quickly set up an admin panel for your Angular projects.

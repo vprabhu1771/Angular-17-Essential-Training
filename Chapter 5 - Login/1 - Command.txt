@@ -1,0 +1,22 @@
+ng g c pages/Login
+
+CREATE src/app/pages/login/login.component.html (21 bytes)
+CREATE src/app/pages/login/login.component.spec.ts (612 bytes)
+CREATE src/app/pages/login/login.component.ts (242 bytes)
+CREATE src/app/pages/login/login.component.css (0 bytes)
+
+
+ng g c pages/Layout
+
+CREATE src/app/pages/layout/layout.component.html (22 bytes)
+CREATE src/app/pages/layout/layout.component.spec.ts (619 bytes)
+CREATE src/app/pages/layout/layout.component.ts (246 bytes)
+CREATE src/app/pages/layout/layout.component.css (0 bytes)
+
+
+ng g c pages/Dashboard
+
+CREATE src/app/pages/dashboard/dashboard.component.html (25 bytes)
+CREATE src/app/pages/dashboard/dashboard.component.spec.ts (640 bytes)
+CREATE src/app/pages/dashboard/dashboard.component.ts (258 bytes)
+CREATE src/app/pages/dashboard/dashboard.component.css (0 bytes)

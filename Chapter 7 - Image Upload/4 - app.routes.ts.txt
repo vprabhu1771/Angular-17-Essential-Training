@@ -1,0 +1,11 @@
+import { Routes } from '@angular/router';
+
+import { UploadimageComponent } from './uploadimage/uploadimage.component';
+
+export const routes: Routes = [
+    {
+        path: '', 
+        component: UploadimageComponent, 
+        title: 'Home Page'
+    },
+];

@@ -1,0 +1,57 @@
+That’s quite a leap if you’ve never seen it before, or perhaps saw it in the documentation once and quickly closed the page.
+
+In essence, Angular will convert our *ngIf syntax across to the above internally. This tells us more about what’s happening with [ngIf], which is the directive being bound with a property binding syntax (square brackets []).
+
+Yes, this does mean, we can supply ngIf, ngIfElse (and ngIfThen) the same way:
+
+app.component.ts
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    NavbarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  title = 'ag_material_demo';
+
+  // Assuming isLoggedIn is a boolean variable
+  //  indicating whether the user is logged in
+  isLoggedIn: boolean = true;
+
+  // Assuming username is the name of the logged-in user
+  username: string = 'John';
+
+  isNewUser: boolean = false;
+
+}
+
+
+app.component.html
+
+<ng-template [ngIf]="isLoggedIn" [ngIfElse]="loggedOut">
+    <div>
+      Welcome back, {{username}}.
+    </div>
+</ng-template>
+  
+<ng-template #loggedOut>
+    <div>
+        Please friend, login.
+    </div>
+</ng-template>
+
+
+In the above example, the paragraph element will only be rendered if the `isLoggedIn` variable is `true`.

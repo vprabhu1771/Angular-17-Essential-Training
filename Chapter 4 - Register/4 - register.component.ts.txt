@@ -1,0 +1,59 @@
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css'
+})
+export class RegisterComponent {
+
+  name: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+  device_name: string = 'web';
+
+  constructor(private http: HttpClient) {}
+
+  registerUser() {
+    if (this.password !== this.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    const userData = {
+      name: this.name,
+      email: this.email,
+      password: this.password,
+      device_name: this.device_name
+    };
+
+    this.http.post<any>('http://192.168.1.122:8000/api/register', userData)
+      .subscribe(
+        response => {
+          console.log('Registration successful', response);
+          // Additional handling here, like redirection or displaying a success message
+          alert(response);
+          this.resetForm()
+        },
+        error => {
+          console.error('Error occurred during registration', error);
+          // Handle error responses, display error messages, etc.
+        }
+      );
+  }
+
+  resetForm() {
+    // Clear the form fields
+    this.name = '';
+    this.email = '';
+    this.password = '';
+    this.confirmPassword = '';
+    // this.deviceName = '';
+  }
+}

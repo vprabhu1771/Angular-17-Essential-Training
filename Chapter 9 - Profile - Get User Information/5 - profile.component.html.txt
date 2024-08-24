@@ -1,0 +1,15 @@
+<div *ngIf="userProfile">
+
+    <h1>Welcome, {{ userProfile.name }}</h1>
+
+    <p>Email: {{ userProfile.email }}</p>    
+
+    <!-- Add other profile information as needed -->
+    <button (click)="logout()">Logout</button>
+
+</div>
+
+<div *ngIf="!userProfile">
+    <p>Loading...</p>
+</div>
+  

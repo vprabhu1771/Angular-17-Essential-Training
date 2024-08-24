@@ -1,0 +1,8 @@
+The `ngClass` directive allows you to conditionally apply CSS classes to an element. For example:
+
+
+<!-- app.component.html -->
+<button [ngClass]="{ 'btn-primary': isPrimary, 'btn-secondary': !isPrimary }">Submit</button>
+
+
+The button will have the `btn-primary` class if `isPrimary` is `true`, and the `btn-secondary` class if `isPrimary` is `false`.

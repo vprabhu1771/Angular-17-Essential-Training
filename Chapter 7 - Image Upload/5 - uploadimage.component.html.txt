@@ -1,0 +1,19 @@
+<h3>Upload images with Angular</h3>
+
+<label>
+  Name:
+  <input type="text" (change)="onTitleChanged($event)" />
+</label>
+
+<br>
+<br>
+
+<label>
+  Image:
+  <input type="file" (change)="onImageChanged($event)" />
+</label>
+
+<br>
+<br>
+
+<button (click)="newBook()">New Book</button>

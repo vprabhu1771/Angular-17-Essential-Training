@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+import { CurrencyApiService } from "../currency-api.service";
+
+@Component({
+  selector: 'app-currency-converter',
+  templateUrl: './currency-converter.component.html',
+  styleUrls: ['./currency-converter.component.scss']
+})
+export class CurrencyConverterComponent {
+
+  baseCurrency = 'USD';
+
+  targetCurrency = 'INR';
+
+  amount = 1;
+
+  convertedAmount?: number;
+
+  exchangeRates: any;
+
+  constructor(private currencyApi: CurrencyApiService) {
+
+    this.convertCurrency();
+
+  }
+
+  convertCurrency() {
+    this.currencyApi.getExchangeRates(this.baseCurrency)
+      .subscribe((data: any) => {
+        this.exchangeRates = data.rates;
+        this.convertedAmount = this.amount * this.exchangeRates[this.targetCurrency];
+
+      });
+  }
+
+}

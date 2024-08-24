@@ -1,0 +1,45 @@
+To create a new Angular project with Angular version 11, you can follow these steps:
+
+1. **Install Angular CLI**: If you haven't installed the Angular CLI, you can do so by running the following command:
+
+   ```bash
+   npm install -g @angular/cli
+   ```
+
+2. **Create a new Angular project**: To create a new Angular project with Angular version 11 specifically, you need to specify the version while creating the project. You can do this by using the `--version` flag:
+
+   ```bash
+   ng new my-angular-project --version=11
+   ```
+
+3. **Navigate to the project directory**: Once the project is created, navigate to the project directory:
+
+   ```bash
+   cd my-angular-project
+   ```
+
+4. **Serve the project**: To run the project, use the following command:
+
+   ```bash
+   ng serve
+   ```
+
+   This will start a development server, and you can view your new Angular project in your browser by navigating to `http://localhost:4200`.
+
+Here is a step-by-step example:
+
+```bash
+# Install Angular CLI globally if not already installed
+npm install -g @angular/cli
+
+# Create a new Angular project with version 11
+ng new my-angular-project --version=11
+
+# Navigate to the project directory
+cd my-angular-project
+
+# Serve the project
+ng serve
+```
+
+This process will create a new Angular project using Angular 11, and you can start developing your application immediately.

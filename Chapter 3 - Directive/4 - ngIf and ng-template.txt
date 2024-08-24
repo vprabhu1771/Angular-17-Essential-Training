@@ -1,0 +1,52 @@
+If you’ve not yet explored the <ng-template> syntax of NgIf, then you’re about to learn some amazing new skills. It’s all about sugar syntax. When we do this:
+
+app.component.ts
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    RouterOutlet,
+    NavbarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  title = 'ag_material_demo';
+
+  // Assuming isLoggedIn is a boolean variable
+  //  indicating whether the user is logged in
+  isLoggedIn: boolean = true;
+
+  // Assuming username is the name of the logged-in user
+  username: string = 'John';
+
+}
+
+
+
+app.component.html
+
+<div *ngIf="isLoggedIn">
+  <p>Welcome, {{ username }}!</p>
+</div>
+
+
+<!-- OR -->
+
+<ng-template [ngIf]="isLoggedIn">
+    <div>
+        <p>Welcome, {{ username }}!</p>
+    </div>
+</ng-template>
+
+In the above example, the paragraph element will only be rendered if the `isLoggedIn` variable is `true`.

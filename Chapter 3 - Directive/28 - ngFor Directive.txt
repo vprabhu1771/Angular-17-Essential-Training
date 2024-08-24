@@ -1,0 +1,9 @@
+The `ngFor` directive allows you to iterate over a collection and generate HTML for each item. For example:
+
+
+<!-- app.component.html -->
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+In this case, the list item element will be generated for each item in the `items` array.

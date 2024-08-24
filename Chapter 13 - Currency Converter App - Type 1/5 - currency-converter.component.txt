@@ -1,0 +1,18 @@
+<div class="converted-container">
+    <h2>Currency Converter</h2>
+    <div>
+        <label for="baseCurrency">Base Currency:</label>
+        <input type="text" [(ngModel)]="baseCurrency">
+    </div>
+    <div>
+        <label for="targetCurrency">Base Currency:</label>
+        <input type="text" [(ngModel)]="targetCurrency">
+    </div>
+    <div>
+        <label for="amount">Amount:</label>
+        <input type="number" [(ngModel)]="amount" (input)="convertCurrency()">
+    </div>
+    <div>
+        <p>Converted Amount: {{ convertedAmount }}</p>
+    </div>
+</div>

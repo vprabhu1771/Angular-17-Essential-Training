@@ -1,0 +1,8 @@
+Certainly! Here's an example of an Angular component:
+
+ng g c navbar
+
+CREATE src/app/navbar/navbar.component.html (22 bytes)
+CREATE src/app/navbar/navbar.component.spec.ts (619 bytes)
+CREATE src/app/navbar/navbar.component.ts (247 bytes)
+CREATE src/app/navbar/navbar.component.scss (0 bytes)
