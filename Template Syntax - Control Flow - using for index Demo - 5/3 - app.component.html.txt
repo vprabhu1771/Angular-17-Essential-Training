@@ -1,0 +1,36 @@
+<div>
+
+  <select (change)="changeUserRole($event)">
+
+    <option value="Customer">Customer</option>
+    <option value="Supplier">Supplier</option>
+    <option value="User">User</option>
+
+  </select>
+
+
+@if (user_role == 'Customer')
+{
+
+  <h1>Customer Page</h1>
+
+  <ul>
+    @for(item of customerList();track item.id; let idx = $index){
+      <li>{{idx}} {{item.id}} {{item.name}}</li>
+    }
+  </ul>
+
+}
+@else if (user_role == 'Supplier')
+{
+
+  <h1>Supplier Page</h1>
+
+}
+@else
+{
+
+  <h1>User Page</h1>
+
+}
+</div>

@@ -1,0 +1,12 @@
+@if (age >= 18) 
+{
+
+  Congrats {{name}}. you are eligible for voting.
+
+}
+@else 
+{
+
+  Sorry {{name}}. you are eligible for voting.
+
+}

@@ -1,0 +1,28 @@
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {  
+ 
+  user_role = "Customer";
+
+  changeUserRole(event: any)
+  {
+    console.log(event.target.value);
+    
+    this.user_role = event.target.value;
+  }
+
+  customerList = signal([
+    {id: 1, name: "Prabhu"},
+    {id: 2, name: "Rajesh"},
+    {id: 3, name: "Kumar"},
+  ])
+
+}

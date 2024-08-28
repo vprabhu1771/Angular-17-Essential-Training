@@ -1,0 +1,3 @@
+Inside @for contents, several implicit variables are always available:
+
+$count 	Number of items in a collection iterated over

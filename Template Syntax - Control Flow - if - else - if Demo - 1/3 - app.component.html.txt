@@ -1,0 +1,18 @@
+@if (user_role == 'Customer')
+{
+
+  <h1>Customer Page</h1>
+
+}
+@else if (user_role == 'Supplier')
+{
+
+  <h1>Supplier Page</h1>
+
+}
+@else
+{
+
+  <h1>User Page</h1>
+
+}

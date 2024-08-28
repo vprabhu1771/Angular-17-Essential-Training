@@ -1,0 +1,18 @@
+@if (no < 0) 
+{
+
+  {{no}} is negative no.
+
+}
+@else if(no > 0)
+{
+
+  {{no}} is positive no.
+
+}
+@else
+{
+
+  {{no}} is zero.
+
+}
