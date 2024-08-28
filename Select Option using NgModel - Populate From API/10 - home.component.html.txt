@@ -1,0 +1,12 @@
+<select [(ngModel)]="selectedOption">
+
+    <option *ngFor="let row of options" 
+        [value]="row.name">
+
+        {{ row.name }}
+
+    </option>
+    
+</select>
+
+<p>Selected Option: {{ selectedOption }}</p>

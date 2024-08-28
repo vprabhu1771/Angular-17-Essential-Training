@@ -1,0 +1,3 @@
+<p>{{ currentDate | date:'fullDate' }}</p>
+
+<p>{{ currentDate | date:'EEEE, MMMM d, y' }}</p>

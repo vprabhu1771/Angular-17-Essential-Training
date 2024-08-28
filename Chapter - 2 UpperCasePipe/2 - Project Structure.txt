@@ -1,0 +1,21 @@
+Create Folder
+
+src -> pages
+
+
+Create Files
+
+cd src 
+
+cd pages
+
+ng g c home --skip-import
+
+OR
+
+ng generate component home --skip-import
+
+CREATE src/pages/home/home.component.html (19 bytes)
+CREATE src/pages/home/home.component.spec.ts (545 bytes)
+CREATE src/pages/home/home.component.ts (195 bytes)
+CREATE src/pages/home/home.component.scss (0 bytes)

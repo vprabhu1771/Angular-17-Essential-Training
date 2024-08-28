@@ -1,0 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+import { CountryService } from '../services/country.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+
+  options: any[] = [];
+
+  // Property to hold the selected value
+  selectedOption: string = '';
+
+  constructor(private countryService: CountryService) {}
+
+  ngOnInit() {
+
+    this.countryService.getOptions().subscribe(data => {
+
+      this.options = data;
+
+      // Set the selectedOption to the value of the first option
+      if (this.options.length > 0) {
+        this.selectedOption = this.options[0].name; // Assuming 'id' is the property you want to use
+      }
+
+    });
+
+  }
+
+}

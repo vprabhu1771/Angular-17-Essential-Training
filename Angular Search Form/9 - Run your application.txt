@@ -1,0 +1,6 @@
+ng serve
+
+Open your browser and go to http://localhost:4200/. You should see your Angular app with a search form.
+
+This is a basic example, and you'll need to replace the search logic in the onSubmit method with your actual search implementation, 
+such as calling an API or searching through local data. Also, consider using services for more complex data operations and handling state.

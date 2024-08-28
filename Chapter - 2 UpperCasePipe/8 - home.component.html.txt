@@ -1,0 +1,11 @@
+<div>
+    
+    {{ originalText }}
+    
+    <br>
+    
+    <!-- Using the UpperCasePipe -->
+
+    {{ originalText | uppercase }}
+
+</div>

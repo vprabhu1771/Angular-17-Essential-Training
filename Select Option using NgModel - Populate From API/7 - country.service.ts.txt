@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { environment as env } from "src/environments/environment";
+import { Observable } from 'rxjs/internal/Observable';
+
+import { Country } from '../models/country.model';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CountryService {
+
+  private readonly ROUTE = "countries/";
+
+  constructor(private http: HttpClient) { }
+
+  getOptions(): Observable<Country[]> {
+    return this.http.get<Country[]>(`${env.BASE_URL}/${this.ROUTE}`);
+  }
+  
+}

@@ -1,0 +1,3 @@
+<p>{{ currentDate | date:'longTime' }}</p>
+
+<p>{{ currentDate | date:'h:mm:ss a z' }}</p>

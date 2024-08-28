@@ -1,0 +1,3 @@
+<p>{{ currentDate | date:'shortDate' }}</p>
+
+<p>{{ currentDate | date:'M/d/yy' }}</p>

@@ -1,0 +1,3 @@
+<p>{{ currentDate | date:'fullTime' }}</p>
+
+<p>{{ currentDate | date:'h:mm:ss a zzzz' }}</p>

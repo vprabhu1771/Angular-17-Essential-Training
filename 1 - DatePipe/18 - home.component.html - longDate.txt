@@ -1,0 +1,3 @@
+<p>{{ currentDate | date:'longDate' }}</p>
+
+<p>{{ currentDate | date:'MMMM d, y' }}</p>

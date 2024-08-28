@@ -1,0 +1,25 @@
+Implement the search logic in your component.
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css'],
+})
+export class SearchComponent {
+
+  searchTerm: string = '';
+
+  searchResults: string[] = [];
+
+  onSubmit() {
+
+    // Perform your search logic here
+
+    // For simplicity, let's just split the search term into words
+    this.searchResults = this.searchTerm.split(' ');
+
+  }
+
+}

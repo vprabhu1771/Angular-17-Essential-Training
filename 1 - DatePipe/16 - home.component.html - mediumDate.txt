@@ -1,0 +1,3 @@
+<p>{{ currentDate | date:'mediumDate' }}</p>
+
+<p>{{ currentDate | date:'MMM d, y' }}</p>

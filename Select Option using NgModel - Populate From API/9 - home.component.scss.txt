@@ -1,0 +1,7 @@
+select, p{
+    margin: 10px;
+}
+
+select {
+    width: 300px;
+}

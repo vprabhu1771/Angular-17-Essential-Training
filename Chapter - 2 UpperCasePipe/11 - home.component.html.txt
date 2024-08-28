@@ -1,0 +1,11 @@
+<div>
+
+    <label>Name: </label>
+    
+    <input #name (keyup)="change(name.value)" type="text">
+
+    <p>In uppercase:
+
+    <pre>'{{user_name | uppercase}}'</pre>
+
+</div>

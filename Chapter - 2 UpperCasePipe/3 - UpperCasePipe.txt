@@ -1,0 +1,1 @@
+Transforms text to all upper case.
